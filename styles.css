@@ -33,26 +33,26 @@ body, html {
     padding: 40px;
     max-width: 1200px;
     margin: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
 }
 
 header {
     text-align: center;
     padding: 30px;
-    background-color: rgba(139, 69, 19, 0.9);
-    border-radius: 10px;
+    background-color: rgba(139, 69, 19, 0.95);
+    border-radius: 15px;
     margin-bottom: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
     font-size: 3.5em;
     font-weight: bold;
     color: #FFD700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    letter-spacing: 2px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    letter-spacing: 3px;
 }
 
 .slideshow-container {
@@ -61,98 +61,103 @@ header h1 {
     margin: 20px auto;
     overflow: hidden;
     border: 5px solid #8B4513;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
 .slide img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 15px;
     transition: transform 0.5s ease;
 }
 
 .slide img:hover {
-    transform: scale(1.05); /* Zoom effect on hover */
+    transform: scale(1.08); /* Zoom effect on hover */
 }
 
 /* Button Section Styling */
 .button-section {
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .button-container {
     text-align: center;
     flex: 1;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 .button-style-1 {
     background-color: #DAA520;
     color: #8B4513;
-    padding: 15px 30px;
+    padding: 20px 35px;
     text-decoration: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    font-size: 1.5em;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    font-size: 1.8em;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button-style-1:hover {
     background-color: #B8860B;
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .button-style-2 {
     background-color: #8B0000;
     color: #FFF;
-    padding: 15px 30px;
+    padding: 20px 35px;
     text-decoration: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    font-size: 1.5em;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    font-size: 1.8em;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button-style-2:hover {
     background-color: #A52A2A;
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .button-style-3 {
     background-color: #006400;
     color: #FFF;
-    padding: 15px 30px;
+    padding: 20px 35px;
     text-decoration: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    font-size: 1.5em;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    font-size: 1.8em;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button-style-3:hover {
     background-color: #228B22;
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .button-container p {
-    font-size: 1em;
-    margin-top: 15px;
+    font-size: 1.2em;
+    margin-top: 20px;
     color: #FFD700;
     font-style: italic;
+    line-height: 1.5em;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 footer {
     text-align: center;
-    padding: 15px;
-    background-color: rgba(139, 69, 19, 0.9);
+    padding: 20px;
+    background-color: rgba(139, 69, 19, 0.95);
     color: #FFD700;
     font-weight: bold;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     position: fixed;
     bottom: 0;
     width: 100%;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.6);
     z-index: 100;
 }
