@@ -1,9 +1,16 @@
-body, html {
+/* Reset default margin and padding */
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Roboto', sans-serif; /* A modern font */
     height: 100%;
     color: #fff;
+    background-color: #2c2c2c; /* Dark background to contrast with the theme */
+    overflow-x: hidden;
 }
 
 .background-image {
@@ -16,23 +23,34 @@ body, html {
     background-size: cover;
     background-position: center;
     z-index: -1;
-    opacity: 0.8;
+    opacity: 0.85;
+    filter: sepia(50%) contrast(1.2) brightness(0.9);
 }
 
 .content {
-    padding: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for content */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 header {
     text-align: center;
-    padding: 20px;
-    background-color: rgba(139, 69, 19, 0.8); /* Dark brown background */
+    padding: 30px;
+    background-color: rgba(139, 69, 19, 0.9); /* Rich brown with a slight transparency */
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 header h1 {
-    font-size: 3em;
-    margin: 0;
-    color: #FFD700; /* Gold color for heading text */
+    font-size: 3.5em;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: 2px;
 }
 
 .slideshow-container {
@@ -40,49 +58,70 @@ header h1 {
     max-width: 100%;
     margin: 20px auto;
     overflow: hidden;
-    border: 5px solid #8B4513; /* Dark brown border */
-    border-radius: 5px;
+    border: 5px solid #8B4513;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
 
 .slide img {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+.slide img:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
 }
 
 nav {
-    margin: 20px 0;
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 nav ul {
     list-style-type: none;
-    padding: 0;
+    width: 30%;
+    background-color: rgba(218, 165, 32, 0.9); /* Goldenrod with slight transparency */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-nav li {
-    margin-bottom: 10px;
-    background-color: rgba(218, 165, 32, 0.8); /* Goldenrod background for links */
-    padding: 10px;
-    border-radius: 5px;
+nav ul:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    background-color: #DAA520; /* Slight color change on hover */
 }
 
 nav a {
-    color: #8B4513; /* Dark brown text color for links */
-    font-size: 1.2em;
+    color: #8B4513;
+    font-size: 1.5em;
     text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 nav p {
-    font-size: 0.9em;
-    margin: 5px 0;
-    color: #FFD700; /* Gold color for descriptions */
+    font-size: 1em;
+    color: #FFD700;
+    text-align: center;
+    font-style: italic;
 }
 
 footer {
     text-align: center;
-    padding: 10px;
-    background-color: rgba(139, 69, 19, 0.8); /* Dark brown background */
+    padding: 15px;
+    background-color: rgba(139, 69, 19, 0.9); /* Rich brown with a slight transparency */
+    color: #FFD700;
+    font-weight: bold;
+    letter-spacing: 1px;
     position: fixed;
     bottom: 0;
     width: 100%;
-    color: #FFD700; /* Gold color for footer text */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
+    z-index: 100;
 }
