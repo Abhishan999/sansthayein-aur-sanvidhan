@@ -95,4 +95,25 @@ nav ul li {
     font-size: 1.5em;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.button:hover {
+    background-color: #B8860B; /* Darker shade on hover */
+    transform: translateY(-5px); /* Lift effect */
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(139, 69, 19, 0.9);
+    color: #FFD700;
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
+    z-index: 100;
+}
