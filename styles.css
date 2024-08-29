@@ -13,9 +13,9 @@ body, html {
     overflow-x: hidden;
 }
 
-/* Improved Background Image Styling */
+/* Background Image Styling */
 .background-image {
-    background-image: url('consti.jpeg'); /* Check path relative to the CSS file */
+    background-image: url('consti.jpeg');
     position: fixed;
     top: 0;
     left: 0;
@@ -25,15 +25,15 @@ body, html {
     background-position: center;
     background-attachment: fixed;
     z-index: -1;
-    opacity: 0.9;
-    filter: sepia(30%) contrast(1.2) brightness(0.9);
+    opacity: 0.85;
+    filter: sepia(30%) contrast(1.2) brightness(0.8);
 }
 
 .content {
     padding: 40px;
     max-width: 1200px;
     margin: auto;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.75);
     border-radius: 15px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
 }
@@ -41,7 +41,7 @@ body, html {
 header {
     text-align: center;
     padding: 30px;
-    background-color: rgba(139, 69, 19, 0.95);
+    background-color: rgba(128, 0, 0, 0.9);
     border-radius: 15px;
     margin-bottom: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
@@ -57,14 +57,14 @@ header h1 {
 
 .slideshow-container {
     position: relative;
-    max-width: 800px; /* Set a fixed width for the slideshow */
-    height: 450px; /* Set a fixed height */
+    max-width: 800px; 
+    height: 450px;
     margin: 20px auto;
     overflow: hidden;
     border: 5px solid #8B4513;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    background-color: #000; /* Background color for the slideshow container */
+    background-color: #000;
 }
 
 .slide {
@@ -77,19 +77,19 @@ header h1 {
 .slide img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* Ensures the image maintains its aspect ratio */
+    object-fit: contain;
     border-radius: 15px;
     transition: transform 0.5s ease;
 }
 
 .slide img:hover {
-    transform: scale(1.08); /* Zoom effect on hover */
+    transform: scale(1.05);
 }
 
 /* Button Section Styling */
 .button-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 50px;
 }
 
@@ -102,11 +102,11 @@ header h1 {
 .button-style-1 {
     background-color: #DAA520;
     color: #8B4513;
-    padding: 20px 35px;
+    padding: 15px 30px;
     text-decoration: none;
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    font-size: 1.8em;
+    font-size: 1.6em;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -119,11 +119,11 @@ header h1 {
 .button-style-2 {
     background-color: #8B0000;
     color: #FFF;
-    padding: 20px 35px;
+    padding: 15px 30px;
     text-decoration: none;
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    font-size: 1.8em;
+    font-size: 1.6em;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -136,11 +136,11 @@ header h1 {
 .button-style-3 {
     background-color: #006400;
     color: #FFF;
-    padding: 20px 35px;
+    padding: 15px 30px;
     text-decoration: none;
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    font-size: 1.8em;
+    font-size: 1.6em;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -152,17 +152,17 @@ header h1 {
 
 .button-container p {
     font-size: 1.2em;
-    margin-top: 20px;
+    margin-top: 15px;
     color: #FFD700;
     font-style: italic;
-    line-height: 1.5em;
+    line-height: 1.4em;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Footer Section Styling */
 .footer-section {
-    padding: 20px;
-    background-color: rgba(139, 69, 19, 0.95);
+    padding: 30px;
+    background-color: rgba(128, 0, 0, 0.9);
     color: #FFD700;
     font-weight: bold;
     letter-spacing: 1.5px;
@@ -170,4 +170,6 @@ header h1 {
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.6);
     margin-top: 50px;
     border-radius: 15px;
+    max-width: 800px;
+    margin: 50px auto 0 auto;
 }
