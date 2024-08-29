@@ -70,8 +70,11 @@ header h1 {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
+/* Decrease the size of the images */
 .slide img {
-    width: 100%;
+    width: 80%; /* Adjust this percentage as needed */
+    max-width: 600px; /* Set a max-width */
+    margin: auto;
     border-radius: 15px;
     transition: transform 0.5s ease;
 }
