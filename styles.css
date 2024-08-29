@@ -29,11 +29,6 @@ body, html {
     filter: sepia(30%) contrast(1.2) brightness(0.9);
 }
 
-/* To debug, add a border to see if the element is there */
-.background-image {
-    border: 1px solid red; /* Temporary border for debugging */
-}
-
 .content {
     padding: 40px;
     max-width: 1200px;
@@ -62,19 +57,27 @@ header h1 {
 
 .slideshow-container {
     position: relative;
-    max-width: 100%;
+    max-width: 800px; /* Set a fixed width for the slideshow */
+    height: 450px; /* Set a fixed height */
     margin: 20px auto;
     overflow: hidden;
     border: 5px solid #8B4513;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    background-color: #000; /* Background color for the slideshow container */
 }
 
-/* Decrease the size of the images */
+.slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
 .slide img {
-    width: 80%; /* Adjust this percentage as needed */
-    max-width: 600px; /* Set a max-width */
-    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures the image maintains its aspect ratio */
     border-radius: 15px;
     transition: transform 0.5s ease;
 }
