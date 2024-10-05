@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="fact-box">
+            <p class="fact">Fact 1</p>
+        </div>
+        <div class="fact-box">
+            <p class="fact">Fact 2</p>
+        </div>
+        <div class="fact-box">
+            <p class="fact">Fact 3</p>
+        </div>
+    </div>
+
+    <button class="refresh-button" onclick="refreshPage()">Change Facts</button>
+
+    <script>
+        const facts = [
+            "Fact 1: The Indian Constitution, adopted on January 26, 1950, is the world's longest written national constitution, containing 395 articles in 22 parts, 12 schedules, and over 100 amendments.",
+            "Fact 2: Dr. B.R. Ambedkar, the Chairman of the Drafting Committee, is often called the 'Father of the Indian Constitution.' His work shaped the fundamental rights and values enshrined in the document.",
+            "Fact 3: The original copies of the Indian Constitution were handwritten in English and Hindi, and calligraphed by Prem Behari Narain Raizada. These copies are preserved in special cases in the Library of the Parliament of India.",
+            "Fact 4: The Indian Constitution establishes India as a secular state, meaning that the state has no official religion and treats all religions equally. This principle is enshrined in the Preamble and in Article 25.",
+            "Fact 5: The Constitution of India can be amended, but it requires a special majority in both houses of Parliament. Some amendments also require ratification by at least half of the state legislatures.",
+            "Fact 6: The Indian Constitution provides for a quasi-federal system, meaning it has features of both federalism and unitary form of government. During emergencies, the country assumes more unitary characteristics.",
+            "Fact 7: The idea of Fundamental Duties was added to the Indian Constitution by the 42nd Amendment in 1976. These duties serve as moral obligations for Indian citizens.",
+            "Fact 8: The Indian judiciary is independent of the executive and legislature. This independence ensures that the courts can safeguard the rights of individuals without interference from other branches of government.",
+            "Fact 9: The Indian Constitution originally allowed for a dual system of government, with both a central and state government. However, it was designed to allow the central government to have more power during emergencies.",
+            "Fact 10: The Directive Principles of State Policy, outlined in Part IV of the Constitution, provide guidelines for the creation of a social welfare state. These principles, though not enforceable in a court of law, are fundamental to the governance of the country."
+        ];
+
+        function refreshPage() {
+            const factBoxes = document.querySelectorAll('.fact');
+            factBoxes.forEach((factBox) => {
+                factBox.innerHTML = facts[Math.floor(Math.random() * facts.length)];
+            });
+        }
+
+        // Initialize with random facts on page load
+        window.onload = refreshPage;
+    </script>
+</body>
+</html>
