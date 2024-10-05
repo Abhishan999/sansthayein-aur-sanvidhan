@@ -1,20 +1,20 @@
-/* Black Theme */
+/* Dark Theme */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #121212; /* Dark black background */
-    color: #ffffff; /* White text */
+    background-color: #000000; /* True black background */
+    color: #ffffff; /* White text for contrast */
     margin: 0;
 }
 
 .quiz-container {
-    background-color: #1f1f1f; /* Slightly lighter black for container */
+    background-color: #1f1f1f; /* Dark gray for the container */
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Subtle shadow for depth */
     max-width: 600px;
     width: 100%;
     text-align: center;
@@ -22,13 +22,13 @@ body {
 
 h1 {
     margin-bottom: 20px;
-    color: #ffffff; /* Pure white for header */
+    color: #f1f1f1; /* Slightly lighter white */
 }
 
 #question {
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 20px;
-    color: #f1f1f1;
+    color: #f9f9f9;
 }
 
 #answers button {
@@ -36,57 +36,57 @@ h1 {
     margin: 10px 0;
     padding: 12px;
     background-color: #333333; /* Dark gray buttons */
-    color: white;
+    color: #ffffff;
     border: none;
     border-radius: 8px;
     font-size: 18px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.2s ease;
 }
 
 #answers button:hover {
-    background-color: #444444; /* Lighter gray on hover */
-    transform: scale(1.05); /* Slight zoom effect on hover */
+    background-color: #555555; /* Lighter gray on hover */
+    transform: scale(1.05); /* Subtle zoom effect */
 }
 
 #answers button.correct {
-    background-color: #28a745 !important; /* Green for correct answers */
+    background-color: #28a745 !important; /* Green for correct answer */
 }
 
 #answers button.wrong {
-    background-color: #dc3545 !important; /* Red for wrong answers */
+    background-color: #dc3545 !important; /* Red for wrong answer */
 }
 
 #next-button {
     margin-top: 20px;
     padding: 12px 24px;
-    background-color: #6c63ff; /* Vibrant purple for the next button */
+    background-color: #4e5ae6; /* Vibrant blue for the next button */
     color: white;
     border: none;
     border-radius: 8px;
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    display: none; /* Initially hidden */
+    display: none; /* Hidden until a question is answered */
 }
 
 #next-button:hover {
-    background-color: #5548c8; /* Darker purple on hover */
-    transform: scale(1.05); /* Slight zoom effect */
+    background-color: #3a4bc0; /* Darker blue on hover */
+    transform: scale(1.05); /* Subtle zoom effect */
 }
 
 #timer {
     margin-bottom: 15px;
     font-size: 20px;
-    color: #ff4b5c; /* Red timer for urgency */
+    color: #ff4b5c; /* Bright red for urgency */
 }
 
 #result {
     margin-top: 20px;
     font-size: 24px;
-    color: #28a745; /* Green result for success */
+    color: #28a745; /* Green for positive result */
 }
 
 #result.wrong {
-    color: #dc3545; /* Red result for failure */
+    color: #dc3545; /* Red for negative result */
 }
