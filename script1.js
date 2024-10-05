@@ -2,7 +2,7 @@ const questions = [
     {
         question: "When was the Indian Constitution adopted?",
         answers: ["1947", "1950", "1949", "1951"],
-        correct: "1950"
+        correct: "1949"
     },
     {
         question: "Who is known as the father of the Indian Constitution?",
@@ -17,7 +17,7 @@ const questions = [
     {
         question: "Which part of the Indian Constitution deals with Fundamental Rights?",
         answers: ["Part III", "Part IV", "Part V", "Part VI"],
-        correct: "Part IV"
+        correct: "Part III"
     },
     {
         question: "The concept of Directive Principles of State Policy was borrowed from which country?",
