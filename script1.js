@@ -2,7 +2,7 @@ const questions = [
     {
         question: "When was the Indian Constitution adopted?",
         answers: ["1947", "1950", "1949", "1951"],
-        correct: "1949"
+        correct: "1950"
     },
     {
         question: "Who is known as the father of the Indian Constitution?",
@@ -17,7 +17,7 @@ const questions = [
     {
         question: "Which part of the Indian Constitution deals with Fundamental Rights?",
         answers: ["Part III", "Part IV", "Part V", "Part VI"],
-        correct: "Part III"
+        correct: "Part IV"
     },
     {
         question: "The concept of Directive Principles of State Policy was borrowed from which country?",
@@ -51,7 +51,7 @@ const questions = [
     },
 ];
 
-// Variables to track the quiz progress
+// Variables to track quiz progress
 let shuffledQuestions, currentQuestionIndex, score, timeLeft;
 const questionElement = document.getElementById('question');
 const answersElement = document.getElementById('answers');
@@ -65,7 +65,7 @@ function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     timeLeft = 120;
-    nextButton.style.display = 'none'; // Hide the next button initially
+    nextButton.style.display = 'none';  // Hide next button initially
     resultElement.textContent = '';
     nextQuestion();
     startTimer();
@@ -74,7 +74,7 @@ function startQuiz() {
 // Function to show the next question
 function nextQuestion() {
     resetState();
-    nextButton.style.display = 'none'; // Hide the next button after each question
+    nextButton.style.display = 'none'; // Hide next button after showing question
     if (currentQuestionIndex < shuffledQuestions.length) {
         showQuestion(shuffledQuestions[currentQuestionIndex]);
     } else {
@@ -93,32 +93,29 @@ function showQuestion(question) {
     });
 }
 
-// Function to reset the state (clear previous question and answers)
+// Function to reset state (clear previous question and answers)
 function resetState() {
     while (answersElement.firstChild) {
         answersElement.removeChild(answersElement.firstChild);
     }
-    nextButton.style.display = 'none';
+    nextButton.style.display = 'none'; // Hide next button after question is reset
 }
 
 // Function to handle answer selection
 function selectAnswer(button, correctAnswer) {
     const isCorrect = button.textContent === correctAnswer;
     button.classList.add(isCorrect ? 'correct' : 'wrong');
-
     if (isCorrect) {
         score++;
     }
-    
-    // Disable all buttons after an answer is selected
     Array.from(answersElement.children).forEach(btn => {
-        btn.disabled = true;
+        btn.disabled = true; // Disable all buttons after selection
         if (btn.textContent === correctAnswer) {
             btn.classList.add('correct');
         }
     });
-
-    nextButton.style.display = 'block'; // Show the next button after selection
+    nextButton.style.display = 'block'; // Show next button after answer is selected
+    currentQuestionIndex++;
 }
 
 // Function to start the timer
