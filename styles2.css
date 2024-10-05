@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #121212;
+    background-color: #001f3f; /* Navy blue background */
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -25,20 +25,20 @@ body {
 }
 
 .fact-box {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15); /* Slightly more opaque background */
     border-radius: 15px;
     padding: 20px;
     text-align: center;
     transition: all 0.3s ease;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px); /* Softer blur */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Stronger shadow */
     cursor: pointer;
-    transform: scale(0.9);
-    opacity: 0.7;
+    transform: scale(0.95); /* Slightly reduced scale */
+    opacity: 0.8; /* Increased initial opacity */
 }
 
 .fact-box:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3); /* More pronounced background on hover */
     transform: scale(1.05);
     opacity: 1;
     backdrop-filter: blur(0px);
@@ -54,21 +54,22 @@ body {
 }
 
 .refresh-button {
-    background-color: #bb86fc;
-    color: #121212;
+    background-color: #4caf50; /* Green button color */
+    color: #ffffff; /* White text */
     border: none;
     padding: 15px 30px;
     border-radius: 10px;
     margin-top: 20px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px; /* Slightly larger font size */
+    font-weight: bold; /* Bold text */
     transition: background-color 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
-    opacity: 0.5; /* Semi-transparent */
+    opacity: 0.7; /* Semi-transparent */
     filter: blur(2px); /* Blurred */
 }
 
 .refresh-button:hover {
-    background-color: #6200ee;
+    background-color: #45a049; /* Darker green on hover */
     opacity: 1; /* Fully opaque */
     filter: blur(0); /* Clear */
 }
