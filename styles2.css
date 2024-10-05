@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #121212;
+    background-color: #000080;
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -30,7 +30,7 @@ body {
     padding: 20px;
     text-align: center;
     transition: all 0.3s ease;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(10px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     cursor: pointer;
     transform: scale(0.9);
