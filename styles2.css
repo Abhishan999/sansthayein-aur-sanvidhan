@@ -25,7 +25,7 @@ body {
 }
 
 .fact-box {
-    background: rgba(255, 255, 255, 0.1);
+    background: transparent;
     border-radius: 15px;
     padding: 20px;
     text-align: center;
