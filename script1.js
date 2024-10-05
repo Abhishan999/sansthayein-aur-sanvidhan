@@ -45,4 +45,85 @@ const questions = [
         correct: "Part I"
     },
     {
-        question: "What
+        question: "What is the tenure of the President of India?",
+        answers: ["4 years", "5 years", "6 years", "7 years"],
+        correct: "5 years"
+    },
+    // Add more questions here to increase the pool of questions
+];
+
+// Variables to track the quiz progress
+let shuffledQuestions, currentQuestionIndex, score, timeLeft;
+const questionElement = document.getElementById('question');
+const answersElement = document.getElementById('answers');
+const resultElement = document.getElementById('result');
+const timerElement = document.getElementById('timer');
+
+// Function to start the quiz
+function startQuiz() {
+    shuffledQuestions = questions.sort(() => Math.random() - 0.5).slice(0, 10);  // Shuffle and pick 10 random questions
+    currentQuestionIndex = 0;
+    score = 0;
+    timeLeft = 120;
+    nextQuestion();
+    startTimer();
+}
+
+// Function to show the next question
+function nextQuestion() {
+    resetState();
+    if (currentQuestionIndex < shuffledQuestions.length) {
+        showQuestion(shuffledQuestions[currentQuestionIndex]);
+    } else {
+        endQuiz();
+    }
+}
+
+// Function to display a question and its answers
+function showQuestion(question) {
+    questionElement.textContent = question.question;
+    question.answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.textContent = answer;
+        button.onclick = () => selectAnswer(button, question.correct);
+        answersElement.appendChild(button);
+    });
+}
+
+// Function to reset the state (clear previous question and answers)
+function resetState() {
+    while (answersElement.firstChild) {
+        answersElement.removeChild(answersElement.firstChild);
+    }
+}
+
+// Function to handle answer selection
+function selectAnswer(button, correctAnswer) {
+    if (button.textContent === correctAnswer) {
+        score++;
+    }
+    currentQuestionIndex++;
+    nextQuestion();
+}
+
+// Function to start the timer
+function startTimer() {
+    const countdown = setInterval(() => {
+        timeLeft--;
+        timerElement.textContent = `Time Left: ${timeLeft} seconds`;
+        if (timeLeft <= 0 || currentQuestionIndex >= shuffledQuestions.length) {
+            clearInterval(countdown);
+            endQuiz();
+        }
+    }, 1000);
+}
+
+// Function to end the quiz and show the result
+function endQuiz() {
+    resultElement.textContent = `Quiz over! You scored ${score} out of ${shuffledQuestions.length}`;
+    timerElement.textContent = "Time's up!";
+    resetState();  // Clear answers and questions
+}
+
+// Start the quiz when the page loads
+window.onload = startQuiz;
