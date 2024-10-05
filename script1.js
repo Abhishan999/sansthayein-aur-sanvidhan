@@ -58,6 +58,7 @@ const questionElement = document.getElementById('question');
 const answersElement = document.getElementById('answers');
 const resultElement = document.getElementById('result');
 const timerElement = document.getElementById('timer');
+const nextButton = document.getElementById('next-button');
 
 // Function to start the quiz
 function startQuiz() {
@@ -65,6 +66,8 @@ function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     timeLeft = 120;
+    nextButton.style.display = 'none'; // Hide the next button initially
+    resultElement.textContent = '';
     nextQuestion();
     startTimer();
 }
@@ -72,6 +75,7 @@ function startQuiz() {
 // Function to show the next question
 function nextQuestion() {
     resetState();
+    nextButton.style.display = 'none'; // Hide the next button after each question
     if (currentQuestionIndex < shuffledQuestions.length) {
         showQuestion(shuffledQuestions[currentQuestionIndex]);
     } else {
@@ -95,15 +99,27 @@ function resetState() {
     while (answersElement.firstChild) {
         answersElement.removeChild(answersElement.firstChild);
     }
+    nextButton.style.display = 'none';
 }
 
 // Function to handle answer selection
 function selectAnswer(button, correctAnswer) {
-    if (button.textContent === correctAnswer) {
+    const isCorrect = button.textContent === correctAnswer;
+    button.classList.add(isCorrect ? 'correct' : 'wrong');
+
+    if (isCorrect) {
         score++;
     }
-    currentQuestionIndex++;
-    nextQuestion();
+    
+    // Disable all buttons after an answer is selected
+    Array.from(answersElement.children).forEach(btn => {
+        btn.disabled = true;
+        if (btn.textContent === correctAnswer) {
+            btn.classList.add('correct');
+        }
+    });
+
+    nextButton.style.display = 'block'; // Show the next button after selection
 }
 
 // Function to start the timer
@@ -123,6 +139,7 @@ function endQuiz() {
     resultElement.textContent = `Quiz over! You scored ${score} out of ${shuffledQuestions.length}`;
     timerElement.textContent = "Time's up!";
     resetState();  // Clear answers and questions
+    nextButton.style.display = 'none'; // Hide next button
 }
 
 // Start the quiz when the page loads
