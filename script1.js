@@ -74,4 +74,70 @@ function startQuiz() {
 // Function to show the next question
 function nextQuestion() {
     resetState();
-    nextButton.style.display = 'none'; // Hide the next button after
+    nextButton.style.display = 'none'; // Hide the next button after each question
+    if (currentQuestionIndex < shuffledQuestions.length) {
+        showQuestion(shuffledQuestions[currentQuestionIndex]);
+    } else {
+        endQuiz();
+    }
+}
+
+// Function to display a question and its answers
+function showQuestion(question) {
+    questionElement.textContent = question.question;
+    question.answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.textContent = answer;
+        button.onclick = () => selectAnswer(button, question.correct);
+        answersElement.appendChild(button);
+    });
+}
+
+// Function to reset the state (clear previous question and answers)
+function resetState() {
+    while (answersElement.firstChild) {
+        answersElement.removeChild(answersElement.firstChild);
+    }
+    nextButton.style.display = 'none';
+}
+
+// Function to handle answer selection
+function selectAnswer(button, correctAnswer) {
+    const isCorrect = button.textContent === correctAnswer;
+    button.classList.add(isCorrect ? 'correct' : 'wrong');
+
+    if (isCorrect) {
+        score++;
+    }
+    
+    // Disable all buttons after an answer is selected
+    Array.from(answersElement.children).forEach(btn => {
+        btn.disabled = true;
+        if (btn.textContent === correctAnswer) {
+            btn.classList.add('correct');
+        }
+    });
+
+    nextButton.style.display = 'block'; // Show the next button after selection
+}
+
+// Function to start the timer
+function startTimer() {
+    const countdown = setInterval(() => {
+        timeLeft--;
+        timerElement.textContent = `Time Left: ${timeLeft} seconds`;
+        if (timeLeft <= 0 || currentQuestionIndex >= shuffledQuestions.length) {
+            clearInterval(countdown);
+            endQuiz();
+        }
+    }, 1000);
+}
+
+// Function to end the quiz and show the result
+function endQuiz() {
+    resultElement.textContent = `Quiz over! You scored ${score}/${shuffledQuestions.length}.`;
+    resultElement.classList.add(score >= 5 ? 'correct' : 'wrong');
+}
+
+// Start the quiz immediately when the page loads
+startQuiz();
