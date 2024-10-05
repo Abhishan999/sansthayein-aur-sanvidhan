@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #000080;
+    background-color: #121212;
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -25,12 +25,12 @@ body {
 }
 
 .fact-box {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 20px;
     text-align: center;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     cursor: pointer;
     transform: scale(0.9);
@@ -62,11 +62,15 @@ body {
     margin-top: 20px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+    opacity: 0.5; /* Semi-transparent */
+    filter: blur(2px); /* Blurred */
 }
 
 .refresh-button:hover {
     background-color: #6200ee;
+    opacity: 1; /* Fully opaque */
+    filter: blur(0); /* Clear */
 }
 
 @media (max-width: 768px) {
