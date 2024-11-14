@@ -1,0 +1,17 @@
+/* Add this CSS below the existing code from login page */
+
+.signup-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: #2b2b2b;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.signup-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FFD700;
+    font-size: 1.8em;
+}
