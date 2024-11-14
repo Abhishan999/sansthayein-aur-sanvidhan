@@ -12,6 +12,29 @@ body, html {
     background-color: #0A1A33; /* Navy blue background */
     overflow-x: hidden;
 }
+/* Styling for the Login/Signup Button */
+.login-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #FFF;
+    background-color: #1E90FF;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.login-button:hover {
+    background-color: #1C86EE;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
 
 /* Background Image Styling */
 .background-image {
