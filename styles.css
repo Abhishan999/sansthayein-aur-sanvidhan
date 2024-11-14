@@ -8,41 +8,14 @@
 body, html {
     font-family: 'Roboto', sans-serif;
     height: 100%;
-    color: #fff;
-    background-color: #2c2c2c; /* Fallback color */
+    color: #f1f1f1;
+    background-color: #121212;
     overflow-x: hidden;
 }
-/* Styling for the Login/Signup Button */
-.login-button {
-    padding: 10px 25px;
-    font-size: 1em;
-    color: #FFFFFF;
-    background-color: #1E90FF;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.login-button:hover {
-    background-color: #1C86EE;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-}
-
-.login-button:active {
-    transform: translateY(1px);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
-}
-
 
 /* Background Image Styling */
 .background-image {
-    background-image: url('consti.jpeg');
+    background-image: url('consti.jpeg'); /* Adjust path if needed */
     position: fixed;
     top: 0;
     left: 0;
@@ -52,25 +25,27 @@ body, html {
     background-position: center;
     background-attachment: fixed;
     z-index: -1;
-    opacity: 0.85;
-    filter: sepia(30%) contrast(1.2) brightness(0.8);
+    opacity: 0.6;
+    filter: grayscale(20%) blur(2px);
 }
 
+/* Main Content Container */
 .content {
-    padding: 40px;
+    padding: 50px 30px;
     max-width: 1200px;
     margin: auto;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(30, 30, 30, 0.9);
     border-radius: 15px;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
+/* Header Styling */
 header {
     text-align: center;
-    padding: 30px;
-    background-color: rgba(128, 0, 0, 0.9);
-    border-radius: 15px;
-    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    margin-bottom: 40px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
@@ -79,124 +54,96 @@ header h1 {
     font-weight: bold;
     color: #FFD700;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
+/* Slideshow Container */
 .slideshow-container {
     position: relative;
-    max-width: 800px; 
-    height: 450px;
+    max-width: 100%;
     margin: 20px auto;
     overflow: hidden;
-    border: 5px solid #8B4513;
-    border-radius: 15px;
+    border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    background-color: #000;
 }
 
 .slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    width: 100%;
     height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 .slide img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: 15px;
-    transition: transform 0.5s ease;
+    width: 100%;
+    border-radius: 12px;
 }
 
-.slide img:hover {
-    transform: scale(1.05);
+.slide.active {
+    opacity: 1;
+    z-index: 1;
 }
 
 /* Button Section Styling */
 .button-section {
     display: flex;
-    justify-content: space-around;
-    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 40px;
 }
 
 .button-container {
+    flex: 1 1 45%;
+    margin: 15px;
     text-align: center;
-    flex: 1;
-    margin: 0 15px;
+    padding: 20px;
+    background-color: rgba(50, 50, 50, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.button-style-1 {
+.button-container:hover {
+    transform: translateY(-5px);
+    background-color: rgba(70, 70, 70, 0.9);
+}
+
+.button-container a {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    color: #FFF;
+    text-decoration: none;
     background-color: #DAA520;
-    color: #8B4513;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    font-size: 1.6em;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.button-style-1:hover {
+.button-container a:hover {
     background-color: #B8860B;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-
-.button-style-2 {
-    background-color: #8B0000;
-    color: #FFF;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    font-size: 1.6em;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.button-style-2:hover {
-    background-color: #A52A2A;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-
-.button-style-3 {
-    background-color: #006400;
-    color: #FFF;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    font-size: 1.6em;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.button-style-3:hover {
-    background-color: #228B22;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
 }
 
 .button-container p {
     font-size: 1.2em;
     margin-top: 15px;
-    color: #FFD700;
+    color: #dcdcdc;
     font-style: italic;
-    line-height: 1.4em;
+    line-height: 1.5em;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Footer Section Styling */
 .footer-section {
-    padding: 30px;
-    background-color: rgba(128, 0, 0, 0.9);
+    margin-top: 60px;
+    padding: 20px;
+    background-color: #333;
     color: #FFD700;
     font-weight: bold;
     letter-spacing: 1.5px;
     text-align: center;
+    border-radius: 10px;
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.6);
-    margin-top: 50px;
-    border-radius: 15px;
-    max-width: 800px;
-    margin: 50px auto 0 auto;
 }
