@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sansthayein Aur Sanvidhan</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login to Your Account</h2>
+            <form action="login_action.html" method="post">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="form-action">
+                    <button type="submit" class="btn-submit">Login</button>
+                </div>
+            </form>
+
+            <div class="signup-link">
+                <p>New User? <a href="signup.html">Signup here</a></p>
+            </div>
+
+            <div class="google-signup">
+                <button class="btn-google" onclick="window.location.href='https://accounts.google.com/o/oauth2/v2/auth?client_id=YOUR_GOOGLE_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URL&response_type=code&scope=openid%20profile%20email'">
+                    Sign Up with Google
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
