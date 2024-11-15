@@ -5,17 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Interface</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        #chatbox { width: 100%; height: 400px; border: 1px solid #ccc; padding: 10px; overflow-y: scroll; }
-        .user { color: blue; }
-        .bot { color: green; }
+        /* Base Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h2 {
+            color: #e91e63;
+            text-align: center;
+        }
+
+        /* Chatbox Styles */
+        #chatbox {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            border: 1px solid #333;
+            padding: 20px;
+            overflow-y: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .user, .bot, .typing {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .user {
+            color: #cddc39;
+            background-color: #333;
+            text-align: right;
+        }
+
+        .bot {
+            color: #80deea;
+            background-color: #2c2c2c;
+        }
+
+        /* Typing Animation */
+        .typing {
+            display: flex;
+            align-items: center;
+            color: #e91e63;
+        }
+
+        .dot {
+            height: 8px;
+            width: 8px;
+            background-color: #e91e63;
+            border-radius: 50%;
+            margin: 0 3px;
+            animation: bounce 0.6s infinite alternate;
+        }
+
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-8px); }
+        }
+
+        /* Input Field and Button */
+        #userInput {
+            width: calc(100% - 50px);
+            max-width: 540px;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+            outline: none;
+        }
+
+        #userInput::placeholder {
+            color: #757575;
+        }
+
+        button {
+            width: 50px;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #e91e63;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #d81b60;
+        }
     </style>
 </head>
 <body>
-    <h2>Chatbot</h2>
-    <div id="chatbox"></div>
-    <input type="text" id="userInput" placeholder="Type your message here" />
-    <button onclick="sendMessage()">Send</button>
+    <div>
+        <h2>Chatbot</h2>
+        <div id="chatbox"></div>
+        <input type="text" id="userInput" placeholder="Type your message here" />
+        <button onclick="sendMessage()">Send</button>
+    </div>
 
     <script>
         async function sendMessage() {
@@ -29,6 +132,13 @@
             userMessage.textContent = "You: " + userInput;
             chatbox.appendChild(userMessage);
 
+            // Display typing animation
+            const typingIndicator = document.createElement("div");
+            typingIndicator.className = "typing";
+            typingIndicator.innerHTML = 'AI: <span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+            chatbox.appendChild(typingIndicator);
+            chatbox.scrollTop = chatbox.scrollHeight;
+
             // Send message to the Flask backend
             const response = await fetch("/chat", {
                 method: "POST",
@@ -36,14 +146,17 @@
                 body: JSON.stringify({ message: userInput })
             });
 
+            // Remove typing animation
+            typingIndicator.remove();
+
             // Get chatbot's response
             const data = await response.json();
             const botMessage = document.createElement("p");
             botMessage.className = "bot";
-            botMessage.textContent = data.response;
+            botMessage.textContent = "AI: " + data.response;
             chatbox.appendChild(botMessage);
 
-            // Clear the input field
+            // Clear the input field and scroll down
             document.getElementById("userInput").value = "";
             chatbox.scrollTop = chatbox.scrollHeight;
         }
