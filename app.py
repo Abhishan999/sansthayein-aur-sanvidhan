@@ -6,8 +6,34 @@ from flask import Flask, request, jsonify, render_template
 app = Flask(__name__)
 
 # Set your Groq API Key and endpoint
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-GROQ_API_URL = "https://api.groq.ai/v1/completion"  # Update if Groq’s API URL is different
+GROQ_API_KEY = os.getenv("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")
+GROQ_API_URL ="https://api.groq.com/openai/v1/chat/completions"
+import spacy
+
+app = Flask(__name__)
+
+# Load spaCy model
+nlp = spacy.load("en_core_web_sm")
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    data = request.json
+    user_input = data.get("message", "")
+    
+    # Detect language and prepare response
+    doc = nlp(user_input)
+    lang = "hindi" if any(token.text in ["नमस्ते", "भारत", "संविधान"] for token in doc) else "english"
+    
+    if lang == "hindi":
+        response = f"आपने पूछा: '{user_input}'. यह भारतीय संविधान के लिए मेरी प्रतिक्रिया है।"
+    else:
+        response = f"You asked: '{user_input}'. Here's my response for the Indian Constitution."
+    
+    return jsonify({"response": response})
+
+if __name__ == "__main__":
+    app.run(debug=True)
+letion"  # Update if Groq’s API URL is different
 
 # Initialize a variable to track if it's the first interaction
 is_first_interaction = True
