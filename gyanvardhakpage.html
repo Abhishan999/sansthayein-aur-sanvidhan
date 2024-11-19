@@ -3,188 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot Interface</title>
+    <title>Chatbot</title>
     <style>
-        /* Base Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
         }
-
-        .chat-container {
-            width: 80%;
-            max-width: 800px;
-            background-color: #1e1e1e;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        #chat-container {
+            width: 60%;
+            margin: 20px auto;
+            background: white;
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h2 {
-            color: #e91e63;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        /* Chatbox Styles */
-        #chatbox {
-            width: 100%;
-            height: 400px;
-            background-color: #262626;
             border-radius: 10px;
-            border: 1px solid #333;
-            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #messages {
+            max-height: 400px;
             overflow-y: auto;
-            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #e8e8e8;
         }
-
-        .user, .bot, .typing {
-            max-width: 75%;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 16px;
-            line-height: 1.5;
-            position: relative;
+        .message {
+            margin: 10px 0;
         }
-
         .user {
-            color: #cddc39;
-            background-color: #333;
-            align-self: flex-end;
             text-align: right;
         }
-
         .bot {
-            color: #80deea;
-            background-color: #2c2c2c;
-            align-self: flex-start;
             text-align: left;
         }
-
-        /* Typing Animation */
-        .typing {
-            display: flex;
-            align-items: center;
-            color: #e91e63;
-        }
-
-        .dot {
-            height: 8px;
-            width: 8px;
-            background-color: #e91e63;
-            border-radius: 50%;
-            margin: 0 3px;
-            animation: bounce 0.6s infinite alternate;
-        }
-
-        .dot:nth-child(2) { animation-delay: 0.2s; }
-        .dot:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-8px); }
-        }
-
-        /* Input Field and Button */
-        .input-container {
-            width: 100%;
-            display: flex;
-            margin-top: 20px;
-        }
-
-        #userInput {
-            flex: 1;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #333;
-            background-color: #2c2c2c;
-            color: #e0e0e0;
-            outline: none;
-        }
-
-        #userInput::placeholder {
-            color: #757575;
-        }
-
-        button {
-            width: 80px;
-            margin-left: 10px;
+        #user-input {
+            width: calc(100% - 120px);
             padding: 10px;
-            border: none;
-            border-radius: 8px;
-            background-color: #e91e63;
-            color: #fff;
-            cursor: pointer;
-            font-weight: bold;
         }
-
-        button:hover {
-            background-color: #d81b60;
+        #send {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #send:hover {
+            background: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        <h2>Gyanvardhak</h2>
-        <div id="chatbox"></div>
-        <div class="input-container">
-            <input type="text" id="userInput" placeholder="Type your message here" />
-            <button onclick="sendMessage()">Send</button>
-        </div>
+    <div id="chat-container">
+        <div id="messages"></div>
+        <input type="text" id="user-input" placeholder="Type your message here...">
+        <button id="send">Send</button>
     </div>
 
     <script>
-        async function sendMessage() {
-            const userInput = document.getElementById("userInput").value;
-            if (userInput.trim() === "") return;
+        const sendButton = document.getElementById("send");
+        const userInput = document.getElementById("user-input");
+        const messages = document.getElementById("messages");
 
-            // Display user's message
-            const chatbox = document.getElementById("chatbox");
-            const userMessage = document.createElement("p");
-            userMessage.className = "user";
-            userMessage.textContent = "You: " + userInput;
-            chatbox.appendChild(userMessage);
+        sendButton.addEventListener("click", () => {
+            const userMessage = userInput.value;
+            if (!userMessage.trim()) return;
 
-            // Display typing animation
-            const typingIndicator = document.createElement("div");
-            typingIndicator.className = "typing";
-            typingIndicator.innerHTML = 'AI: <span class="dot"></span><span class="dot"></span><span class="dot"></span>';
-            chatbox.appendChild(typingIndicator);
-            chatbox.scrollTop = chatbox.scrollHeight;
+            // Display user message
+            messages.innerHTML += `<div class="message user">${userMessage}</div>`;
+            userInput.value = "";
 
-            // Send message to the Flask backend
-            const response = await fetch("/chat", {
+            // Send message to the backend
+            fetch("/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: userInput })
-            });
-
-            // Remove typing animation
-            typingIndicator.remove();
-
-            // Get chatbot's response
-            const data = await response.json();
-            const botMessage = document.createElement("p");
-            botMessage.className = "bot";
-            botMessage.textContent = "AI: " + data.response;
-            chatbox.appendChild(botMessage);
-
-            // Clear the input field and scroll down
-            document.getElementById("userInput").value = "";
-            chatbox.scrollTop = chatbox.scrollHeight;
-        }
+                body: JSON.stringify({ message: userMessage }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Display bot response
+                    messages.innerHTML += `<div class="message bot">${data.response}</div>`;
+                    messages.scrollTop = messages.scrollHeight;
+                })
+                .catch(error => {
+                    messages.innerHTML += `<div class="message bot">Error: ${error.message}</div>`;
+                });
+        });
     </script>
 </body>
 </html>
