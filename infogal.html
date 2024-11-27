@@ -14,58 +14,52 @@
     <button class="refresh-button" onclick="refreshPage()">Know More!</button>
 
     <script>
-        const facts = [
-            { heading: "Longest Constitution", detail: "The Indian Constitution, adopted on January 26, 1950, is the world's longest written national constitution, containing 395 articles in 22 parts, 12 schedules, and over 100 amendments." },
-            { heading: "Father of the Constitution", detail: "Dr. B.R. Ambedkar, the Chairman of the Drafting Committee, is often called the 'Father of the Indian Constitution.' His work shaped the fundamental rights and values enshrined in the document." },
-            { heading: "Handwritten Constitution", detail: "The original copies of the Indian Constitution were handwritten in English and Hindi, and calligraphed by Prem Behari Narain Raizada. These copies are preserved in the Library of the Parliament of India." },
-            { heading: "Secular State", detail: "The Indian Constitution establishes India as a secular state, meaning that the state has no official religion and treats all religions equally, a principle enshrined in Article 25." },
-            { heading: "Amendment Process", detail: "The Constitution of India can be amended, but it requires a special majority in both houses of Parliament, and certain amendments also need ratification by half of the state legislatures." },
-            { heading: "Quasi-Federal System", detail: "The Indian Constitution provides for a quasi-federal system, which allows it to function as a federal state with unitary powers during emergencies." },
-            { heading: "Fundamental Duties", detail: "The concept of Fundamental Duties was added to the Indian Constitution in 1976 by the 42nd Amendment, emphasizing the moral obligations of Indian citizens." },
-            { heading: "Independent Judiciary", detail: "The Indian judiciary is independent of the executive and legislature, ensuring that the courts can safeguard rights without interference from the government." },
-            { heading: "Directive Principles", detail: "The Directive Principles of State Policy guide the government in creating a welfare state, focusing on social justice, although they are not enforceable by courts." },
-            { heading: "Constitutional Inspirations", detail: "The Indian Constitution was inspired by various constitutions worldwide, incorporating elements from the British, Irish, American, and Australian models." },
-            { heading: "Article 32", detail: "Article 32 of the Indian Constitution is often referred to as the 'heart and soul' of the Constitution because it guarantees the right to constitutional remedies." },
-            { heading: "National Flag Code", detail: "The Flag Code of India prescribes the correct way to display and respect the national flag, ensuring its dignity is preserved." },
-            { heading: "Emergency Provisions", detail: "The Constitution of India allows the President to declare a state of emergency during grave threats to security, granting the central government sweeping powers." },
-            { heading: "Languages in Constitution", detail: "The Constitution of India recognizes 22 official languages under the Eighth Schedule, reflecting the country's linguistic diversity." },
-            { heading: "Voting Age", detail: "The 61st Amendment Act of 1988 lowered the voting age in India from 21 to 18, empowering more youth to participate in elections." },
-            { heading: "Equality Before Law", detail: "Article 14 ensures 'Equality Before Law,' prohibiting discrimination and ensuring fairness in legal procedures for all citizens." }
-        ];
+    const facts = [
+        { heading: "Longest Constitution", detail: "The Indian Constitution, adopted on January 26, 1950, is the world's longest written national constitution, containing 395 articles in 22 parts, 12 schedules, and over 100 amendments." },
+        { heading: "Father of the Constitution", detail: "Dr. B.R. Ambedkar, the Chairman of the Drafting Committee, is often called the 'Father of the Indian Constitution.' His work shaped the fundamental rights and values enshrined in the document." },
+        { heading: "Handwritten Constitution", detail: "The original copies of the Indian Constitution were handwritten in English and Hindi, and calligraphed by Prem Behari Narain Raizada. These copies are preserved in the Library of the Parliament of India." },
+        { heading: "Secular State", detail: "The Indian Constitution establishes India as a secular state, meaning that the state has no official religion and treats all religions equally, a principle enshrined in Article 25." },
+        { heading: "Amendment Process", detail: "The Constitution of India can be amended, but it requires a special majority in both houses of Parliament, and certain amendments also need ratification by half of the state legislatures." },
+        { heading: "Quasi-Federal System", detail: "The Indian Constitution provides for a quasi-federal system, which allows it to function as a federal state with unitary powers during emergencies." },
+        { heading: "Fundamental Duties", detail: "The concept of Fundamental Duties was added to the Indian Constitution in 1976 by the 42nd Amendment, emphasizing the moral obligations of Indian citizens." },
+        { heading: "Independent Judiciary", detail: "The Indian judiciary is independent of the executive and legislature, ensuring that the courts can safeguard rights without interference from the government." },
+        { heading: "Directive Principles", detail: "The Directive Principles of State Policy guide the government in creating a welfare state, focusing on social justice, although they are not enforceable by courts." },
+        { heading: "Constitutional Inspirations", detail: "The Indian Constitution was inspired by various constitutions worldwide, incorporating elements from the British, Irish, American, and Australian models." }
+    ];
 
-        function loadRandomFacts() {
-            const container = document.querySelector('.container');
-            container.innerHTML = ""; // Clear existing facts
+    function loadRandomFacts() {
+        const container = document.querySelector('.container');
+        container.innerHTML = ""; // Clear existing facts
 
-            // Shuffle facts and pick 8 random ones
-            const shuffledFacts = facts.sort(() => 0.5 - Math.random()).slice(0, 8);
+        // Shuffle facts and pick 8 random ones
+        const shuffledFacts = facts.sort(() => 0.5 - Math.random()).slice(0, 8);
 
-            // Dynamically create fact tiles
-            shuffledFacts.forEach(fact => {
-                const factBox = document.createElement('div');
-                factBox.classList.add('fact-box');
-                factBox.dataset.detail = fact.detail;
-                factBox.innerHTML = `<p class="fact">${fact.heading}</p>`;
-                container.appendChild(factBox);
+        // Dynamically create fact tiles
+        shuffledFacts.forEach(fact => {
+            const factBox = document.createElement('div');
+            factBox.classList.add('fact-box');
+            factBox.dataset.detail = fact.detail;
+            factBox.innerHTML = `<p class="fact">${fact.heading}</p>`;
+            container.appendChild(factBox);
+        });
+
+        // Add hover effect to display full fact
+        document.querySelectorAll('.fact-box').forEach(box => {
+            box.addEventListener('mouseover', () => {
+                box.querySelector('.fact').innerText = box.dataset.detail;
             });
-
-            // Add hover effect to display full fact
-            document.querySelectorAll('.fact-box').forEach(box => {
-                box.addEventListener('mouseover', () => {
-                    box.querySelector('.fact').innerText = box.dataset.detail;
-                });
-                box.addEventListener('mouseout', () => {
-                    box.querySelector('.fact').innerText = box.dataset.detail.split('.')[0]; // Show the heading again
-                });
+            box.addEventListener('mouseout', () => {
+                box.querySelector('.fact').innerText = box.dataset.detail.split('.')[0]; // Show the heading again
             });
-        }
+        });
+    }
 
-        function refreshPage() {
-            loadRandomFacts(); // Reload with new random facts
-        }
+    function refreshPage() {
+        loadRandomFacts(); // Reload with new random facts
+    }
 
-        // Initialize facts on page load
-        window.onload = loadRandomFacts;
-    </script>
+    // Initialize facts on page load
+    window.onload = loadRandomFacts;
+</script>
 </body>
 </html>
