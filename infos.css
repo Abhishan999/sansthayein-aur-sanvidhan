@@ -45,12 +45,12 @@ body {
 }
 
 .fact {
-    opacity: 0;
+    opacity: 1; /* Ensure fact heading is visible initially */
     transition: opacity 0.3s ease;
 }
 
 .fact-box:hover .fact {
-    opacity: 1;
+    opacity: 1; /* Keep opacity unchanged for hover state */
 }
 
 .refresh-button {
@@ -63,15 +63,14 @@ body {
     cursor: pointer;
     font-size: 18px; /* Slightly larger font size */
     font-weight: bold; /* Bold text */
-    transition: background-color 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
-    opacity: 0.7; /* Semi-transparent */
-    filter: blur(2px); /* Blurred */
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    opacity: 1; /* Fully opaque */
+    filter: none; /* Remove blur */
 }
 
 .refresh-button:hover {
     background-color: #45a049; /* Darker green on hover */
     opacity: 1; /* Fully opaque */
-    filter: blur(0); /* Clear */
 }
 
 @media (max-width: 768px) {
