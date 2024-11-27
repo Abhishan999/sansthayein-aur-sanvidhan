@@ -1,196 +1,149 @@
-/* General Styles */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #1e1e2f, #3b3b61);
-  color: #fff;
-}
-
-header {
-  background: #121212;
-  padding: 20px;/* General Reset */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-/* Body Styling */
+/* Body */
 body {
-    font-family: 'Arial', sans-serif;
-    color: #ffffff;
-    background: linear-gradient(to bottom right, #1e3c72, #2a5298);
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    color: #fff;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
     min-height: 100vh;
-    padding: 20px;
 }
 
-/* Header Styling */
-header {
+/* Header Hero Section */
+.hero {
     text-align: center;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #ffdd00;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
     margin-bottom: 30px;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.2rem;
-    color: #d1d1d1;
-}
-
-/* Video Gallery Styling */
-.video-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-}
-
-.video-item {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    transition: transform 0.3s ease, background 0.3s ease;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-.video-item h2 {
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    color: #ffdd00;
-}
-
-.video-item iframe {
-    width: 100%;
-    height: 200px;
-    border: none;
-    border-radius: 10px;
-}
-
-.video-item:hover {
-    transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.2);
-}
-  
-  .coming-soon {
-    margin-top: 30px;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #ffdd00; /* Bright yellow color for emphasis */
-    background: rgba(255, 255, 255, 0.1); /* Slight background for emphasis */
-    padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-
-/* Footer Styling */
-footer {
-    margin-top: 30px;
-    text-align: center;
+.hero button {
+    padding: 15px 30px;
     font-size: 1rem;
-    color: #d1d1d1;
+    font-weight: bold;
+    background: #ffdd00;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+.hero button:hover {
+    background: #ffaa00;
 }
 
-header h1 {
-  font-size: 2.5rem;
-  color: #ffd700;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+/* Course Intro */
+.course-intro {
+    text-align: center;
+    margin: 30px auto;
+    max-width: 800px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Container Styles */
-.container {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
+/* Video Gallery */
+.video-gallery {
+    margin: 30px auto;
+    max-width: 1000px;
 }
 
-/* YouTube Section */
-.youtube-section h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  text-align: center;
-  color: #ff6f61;
+.video-gallery h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
-.video-grid iframe {
-  border: 0;
-  border-radius: 10px;
-  width: 100%;
-  height: 200px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+.video-item {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
 
-/* Courses Section */
-.courses-section {
-  background: #232323;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+.video-item h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
-.courses-section h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  text-align: center;
-  color: #4caf50;
+iframe {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
 }
 
-.course-tracks {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+/* Coming Soon Section */
+.coming-soon {
+    text-align: center;
+    padding: 20px;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #ffdd00;
 }
 
-.track {
-  background: linear-gradient(135deg, #ff7eb3, #ff758c);
-  border-radius: 8px;
-  padding: 15px;
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+/* Categories */
+.categories {
+    margin: 30px auto;
+    max-width: 1000px;
 }
 
-.track:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+.categories h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.track h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #fff;
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
 }
 
-.track p {
-  font-size: 1rem;
-  color: #f8f8f8;
+.category-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Footer Styles */
+.category-item h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.category-item p {
+    font-size: 0.9rem;
+}
+
+/* Footer */
 footer {
-  text-align: center;
-  padding: 10px;
-  background: #121212;
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
-  color: #ccc;
-  margin-top: 20px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-top: 2px solid #ffdd00;
 }
