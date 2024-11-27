@@ -8,39 +8,83 @@
 </head>
 <body>
     <header>
-        <h1>Sansthayein aur Samvidhan</h1>
-        <p>Your gateway to understanding the Indian Constitution</p>
+        <div class="hero">
+            <h1>Sansthayein aur Samvidhan</h1>
+            <p>Dive deep into the essence of the Indian Constitution</p>
+            <button onclick="scrollToContent()">Explore Courses</button>
+        </div>
     </header>
     <main>
-        <section class="video-gallery">
-            <div class="video-item">
-                <h2>Making of Indian Constitution</h2>
-                <iframe src="https://www.youtube.com/embed/4tI4QXhzqNU" allowfullscreen></iframe>
-            </div>
-            <div class="video-item">
-                <h2>What is Constitution?</h2>
-                <iframe src="https://www.youtube.com/embed/z-UzdY-pXTc" allowfullscreen></iframe>
-            </div>
-            <div class="video-item">
-                <h2>Preamble of Indian Constitution</h2>
-                <iframe src="https://www.youtube.com/embed/LYHAy68pQWA" allowfullscreen></iframe>
-            </div>
-            <div class="video-item">
-                <h2>Fundamental Duties in Indian Constitution</h2>
-                <iframe src="https://www.youtube.com/embed/o2r_y9LAgpo" allowfullscreen></iframe>
-            </div>
-            <div class="video-item">
-                <h2>Right Against Exploitation</h2>
-                <iframe src="https://www.youtube.com/embed/AXqrYiJV7tI" allowfullscreen></iframe>
-            </div>
-        
+        <section class="course-intro">
+            <h2>Why Learn About the Indian Constitution?</h2>
+            <p>The Indian Constitution forms the backbone of our democracy, ensuring equality, freedom, and justice for all. Explore its depth through our specially curated video modules.</p>
         </section>
+
+        <section id="video-gallery" class="video-gallery">
+            <h2>Featured Modules</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <h3>Making of Indian Constitution</h3>
+                    <iframe src="https://www.youtube.com/embed/4tI4QXhzqNU" allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <h3>What is Constitution?</h3>
+                    <iframe src="https://www.youtube.com/embed/z-UzdY-pXTc" allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <h3>Preamble of Indian Constitution</h3>
+                    <iframe src="https://www.youtube.com/embed/LYHAy68pQWA" allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <h3>Fundamental Duties in Indian Constitution</h3>
+                    <iframe src="https://www.youtube.com/embed/o2r_y9LAgpo" allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <h3>Right Against Exploitation</h3>
+                    <iframe src="https://www.youtube.com/embed/AXqrYiJV7tI" allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <h3>Right Against Exploitation (Additional)</h3>
+                    <iframe src="https://www.youtube.com/embed/FUZAjzVUafI" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
         <section class="coming-soon">
-            <p>More modules and courses are coming soon! Stay tuned for updates.</p>
+            <h2>More Courses Coming Soon</h2>
+            <p>We are actively working to expand our library with more insightful videos and interactive content. Stay connected!</p>
+        </section>
+
+        <section class="categories">
+            <h2>Explore More</h2>
+            <div class="category-grid">
+                <div class="category-item">
+                    <h3>Fundamental Rights</h3>
+                    <p>Discover your rights and how they protect you in a democratic setup.</p>
+                </div>
+                <div class="category-item">
+                    <h3>Directive Principles</h3>
+                    <p>Learn about the guidelines for governance to ensure social and economic justice.</p>
+                </div>
+                <div class="category-item">
+                    <h3>Historical Background</h3>
+                    <p>Uncover the historical events leading to the drafting of the Indian Constitution.</p>
+                </div>
+                <div class="category-item">
+                    <h3>Landmark Amendments</h3>
+                    <p>Understand key amendments that shaped modern India.</p>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
-        <p>Created by Circuit Breakers</p>
+        <p>Created by Circuit Breakers | © 2024</p>
     </footer>
+
+    <script>
+        function scrollToContent() {
+            document.getElementById('video-gallery').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
