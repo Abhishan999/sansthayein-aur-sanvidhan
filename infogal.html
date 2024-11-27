@@ -55,7 +55,7 @@
                     box.querySelector('.fact').innerText = box.dataset.detail;
                 });
                 box.addEventListener('mouseout', () => {
-                    box.querySelector('.fact').innerText = box.dataset.detail.split('.')[0]; // Show only the first sentence
+                    box.querySelector('.fact').innerText = box.dataset.detail.split('.')[0]; // Show the heading again
                 });
             });
         }
