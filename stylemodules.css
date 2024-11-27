@@ -1,69 +1,78 @@
-/* Full-page dark background */
-body {
+/* General Reset */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #121212;  /* Dark background */
-    color: #fff;  /* Light text for contrast */
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Container for the video module */
-.video-module-container {
-    padding: 20px;
-    background-color: #121212;  /* Dark background */
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    background: linear-gradient(to bottom right, #1e3c72, #2a5298);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     min-height: 100vh;
+    padding: 20px;
 }
 
-/* Video grid layout (side by side) */
-.video-grid {
+/* Header Styling */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #d1d1d1;
+}
+
+/* Video Gallery Styling */
+.video-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));  /* Responsive grid with automatic sizing */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    margin: 0 auto;
+    width: 100%;
     max-width: 1200px;
 }
 
-/* Video tile styling */
-.video-tile {
-    background: #1e1e1e;  /* Darker tile background */
-    border-radius: 15px;  /* Curved corners */
-    overflow: hidden;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);  /* Soft shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Hover effects */
-    color: #fff;  /* Text color */
+.video-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
     text-align: center;
-    padding: 10px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.video-tile:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.8);  /* Darker shadow on hover */
+.video-item h2 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #ffdd00;
 }
 
-/* Embedded video iframe */
-.video-tile iframe {
+.video-item iframe {
     width: 100%;
     height: 200px;
     border: none;
-    border-bottom: 3px solid #FFD700;  /* Gold border to match theme */
+    border-radius: 10px;
 }
 
-/* Video title styling */
-.video-tile h3 {
-    margin-top: 10px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.2em;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    letter-spacing: 0.5px;
-    color: #FFD700;  /* Gold text for titles */
+.video-item:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    .video-tile iframe {
-        height: 150px;
-    }
-
-    .video-tile h3 {
-        font-size: 1em;
-    }
+/* Footer Styling */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1rem;
+    color: #d1d1d1;
 }
