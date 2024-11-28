@@ -295,4 +295,38 @@ function startQuiz() {
     nextQuestion();
     startTimer();
 }
+function nextQuestion() {
+    if (currentQuestionIndex < shuffledQuestions.length) {
+        const currentQuestion = shuffledQuestions[currentQuestionIndex];
+        questionContainer.textContent = currentQuestion.question;  // Display the question
+        answersContainer.innerHTML = '';  // Clear previous answers
+
+        currentQuestion.answers.forEach(answer => {
+            const answerButton = document.createElement('button');
+            answerButton.textContent = answer;
+            answerButton.onclick = function() {
+                checkAnswer(answer);
+            };
+            answersContainer.appendChild(answerButton);
+        });
+
+        nextButton.style.display = 'none';  // Hide next button until an answer is selected
+    } else {
+        displayResult();  // When there are no more questions, show the result
+    }
+}
+function checkAnswer(selectedAnswer) {
+    const correctAnswer = shuffledQuestions[currentQuestionIndex].correct;
+
+    if (selectedAnswer === correctAnswer) {
+        score++;
+    }
+
+    currentQuestionIndex++;
+    nextButton.style.display = 'block';  // Show the next button after selecting an answer
+}
+function displayResult() {
+    resultElement.textContent = `Your score: ${score}/${shuffledQuestions.length}`;
+}
+
 
