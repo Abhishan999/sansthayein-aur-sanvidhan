@@ -5,7 +5,7 @@ const App = () => (
     domain="dev-jtrtkaayf3jznasd.us.auth0.com"
     client_id="rD7Xx8R2q7XXD4iJNYkShOikPXRpI4Io"
     authorizationParams={{
-      redirect_uri: https://sansthayein-aur-samvidhan-gucg7a0xl-abhishan999s-projects.vercel.app,
+      redirect_uri: sansthayein-aur-samvidhan-gucg7a0xl-abhishan999s-projects.vercel.app,
     }}
   >
     <Sansthayein-aur-samvidhan>
