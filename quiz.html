@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indian Constitution Quiz</title>
-    <link rel="stylesheet" href="styles1.css">
+    <style>
+        /* Add your styling here */
+    </style>
 </head>
 <body>
-    <div class="quiz-container">
+
+    <div id="quiz-container">
         <h1>Indian Constitution Quiz</h1>
-        <div id="timer">Time Left: 120 seconds</div>
-        <div id="question-container">
-            <div id="question"></div>
-            <div id="answers"></div>
-        </div>
-        <button id="next-button" onclick="nextQuestion()">Next</button>
-        <div id="result"></div>
+        <div id="question-container"></div> <!-- This will display the question -->
+        <div id="answers-container"></div> <!-- This will display the answers -->
+        <button id="next-button" style="display: none;" onclick="nextQuestion()">Next Question</button>
+        <div id="result"></div> <!-- This will display the result -->
     </div>
 
-    <script src="quizquest.js"></script>
+    <script src="quizquest.js"></script> <!-- Include your JS file here -->
 </body>
 </html>
