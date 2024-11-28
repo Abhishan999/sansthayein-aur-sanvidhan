@@ -48,29 +48,41 @@ const questions = [
         question: "What is the tenure of the President of India?",
         answers: ["4 years", "5 years", "6 years", "7 years"],
         correct: "5 years"
-    }
+    },
 ];
 
+// Variables to track quiz progress
 let shuffledQuestions, currentQuestionIndex, score, timeLeft;
 const questionElement = document.getElementById('question');
 const answersElement = document.getElementById('answers');
 const resultElement = document.getElementById('result');
 const timerElement = document.getElementById('timer');
+const nextButton = document.getElementById('next-button');
 
+// Function to start the quiz
 function startQuiz() {
     shuffledQuestions = questions.sort(() => Math.random() - 0.5).slice(0, 10);  // Shuffle and pick 10 random questions
     currentQuestionIndex = 0;
     score = 0;
     timeLeft = 120;
+    nextButton.style.display = 'none';  // Hide next button initially
+    resultElement.textContent = '';
     nextQuestion();
     startTimer();
 }
 
+// Function to show the next question
 function nextQuestion() {
     resetState();
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
+    nextButton.style.display = 'none'; // Hide next button after showing question
+    if (currentQuestionIndex < shuffledQuestions.length) {
+        showQuestion(shuffledQuestions[currentQuestionIndex]);
+    } else {
+        endQuiz();
+    }
 }
 
+// Function to display a question and its answers
 function showQuestion(question) {
     questionElement.textContent = question.question;
     question.answers.forEach(answer => {
@@ -81,24 +93,32 @@ function showQuestion(question) {
     });
 }
 
+// Function to reset state (clear previous question and answers)
 function resetState() {
     while (answersElement.firstChild) {
         answersElement.removeChild(answersElement.firstChild);
     }
+    nextButton.style.display = 'none'; // Hide next button after question is reset
 }
 
+// Function to handle answer selection
 function selectAnswer(button, correctAnswer) {
-    if (button.textContent === correctAnswer) {
+    const isCorrect = button.textContent === correctAnswer;
+    button.classList.add(isCorrect ? 'correct' : 'wrong');
+    if (isCorrect) {
         score++;
     }
+    Array.from(answersElement.children).forEach(btn => {
+        btn.disabled = true; // Disable all buttons after selection
+        if (btn.textContent === correctAnswer) {
+            btn.classList.add('correct');
+        }
+    });
+    nextButton.style.display = 'block'; // Show next button after answer is selected
     currentQuestionIndex++;
-    if (currentQuestionIndex < shuffledQuestions.length) {
-        nextQuestion();
-    } else {
-        endQuiz();
-    }
 }
 
+// Function to start the timer
 function startTimer() {
     const countdown = setInterval(() => {
         timeLeft--;
@@ -110,11 +130,11 @@ function startTimer() {
     }, 1000);
 }
 
+// Function to end the quiz and show the result
 function endQuiz() {
-    resultElement.textContent = `Quiz over! You scored ${score} out of ${shuffledQuestions.length}`;
-    timerElement.textContent = "Time's up!";
-    resetState();  // Clear answers and questions
+    resultElement.textContent = `Quiz over! You scored ${score}/${shuffledQuestions.length}.`;
+    resultElement.classList.add(score >= 5 ? 'correct' : 'wrong');
 }
 
-// Start the quiz when the page loads
-window.onload = startQuiz;
+// Start the quiz immediately when the page loads
+startQuiz();
